@@ -21,7 +21,7 @@ class FostersTable
             ->columns([
                 ImageColumn::make('foster_image')
                     ->disk('public')
-                    ->label('Image')
+                    ->label('')
                     ->circular(),
                 TextColumn::make('user.name')
                     ->searchable()

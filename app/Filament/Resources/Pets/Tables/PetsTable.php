@@ -23,7 +23,7 @@ class PetsTable
             ->columns([
                 ImageColumn::make('image')
                     ->disk('public')
-                    ->label('Image')
+                    ->label('')
                     ->circular(),
 
                 TextColumn::make('name')
