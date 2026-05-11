@@ -16,6 +16,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use App\Models\WheelMember;
 
 class WheelResource extends Resource
 {
@@ -92,5 +93,23 @@ class WheelResource extends Resource
                 'currentAssignment.foster.user',
                 'nextAssignment.foster.user',
             ]);
+    }
+
+    protected function afterSave(): void
+    {
+        $data = $this->form->getState();
+
+        $fosterIds = $data['primary_fosters'] ?? [];
+
+        foreach ($fosterIds as $fosterId) {
+
+            WheelMember::firstOrCreate([
+                'wheel_id' => $this->record->id,
+                'foster_id' => $fosterId,
+                'type' => 'primary',
+            ], [
+                'joined_at' => now(),
+            ]);
+        }
     }
 }

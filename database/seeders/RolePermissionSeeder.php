@@ -70,10 +70,10 @@ class RolePermissionSeeder extends Seeder
         ]);
 
         $user_admin = User::updateOrCreate(
-            ['email' => 'nikki@gmail.com'],
+            ['email' => 'nikki@coastalbendweb.com'],
             [
                 'name' => 'Nikki',
-                'password' => Hash::make('arizanda'),
+                'password' => Hash::make('25kL7Z+kRm?M'),
             ]
         );
 

@@ -33,4 +33,29 @@ class EditWheel extends EditRecord
     {
         return $this->getResource()::getUrl('index');
     }
+
+    protected function afterCreate(): void
+    {
+        $data = $this->form->getState();
+
+        foreach ($data['new_primary_fosters'] ?? [] as $fosterId) {
+
+            \App\Models\WheelMember::create([
+                'wheel_id' => $this->record->id,
+                'foster_id' => $fosterId,
+                'type' => 'primary',
+                'joined_at' => now(),
+            ]);
+        }
+
+        foreach ($data['new_backup_fosters'] ?? [] as $fosterId) {
+
+            \App\Models\WheelMember::create([
+                'wheel_id' => $this->record->id,
+                'foster_id' => $fosterId,
+                'type' => 'backup',
+                'joined_at' => now(),
+            ]);
+        }
+    }
 }
