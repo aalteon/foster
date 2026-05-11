@@ -4,7 +4,7 @@ namespace App\Filament\Resources\Fosters;
 
 use App\Filament\Resources\Fosters\Pages\CreateFoster;
 use App\Filament\Resources\Fosters\Pages\EditFoster;
-use App\Filament\Resources\Fosters\Pages\ListFoster;
+use App\Filament\Resources\Fosters\Pages\ListFosters;
 use App\Filament\Resources\Fosters\Pages\ViewFoster;
 use App\Filament\Resources\Fosters\Schemas\FosterForm;
 use App\Filament\Resources\Fosters\Schemas\FosterInfolist;
@@ -53,7 +53,7 @@ class FosterResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListFoster::route('/'),
+            'index' => ListFosters::route('/'),
             'create' => CreateFoster::route('/create'),
             'view' => ViewFoster::route('/{record}'),
             'edit' => EditFoster::route('/{record}/edit'),
