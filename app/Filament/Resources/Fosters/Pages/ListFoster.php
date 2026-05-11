@@ -6,7 +6,7 @@ use App\Filament\Resources\Fosters\FosterResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-class ListFosters extends ListRecords
+class ListFoster extends ListRecords
 {
     protected static string $resource = FosterResource::class;
 
